@@ -21,7 +21,7 @@
   - Serde types matching `boxxy-claw-protocol` (`RegistrySnapshot`, `CharacterInfo`, `CharacterConfig`, `CharacterStatus`, `CharacterClaim`, `HolderKind`) and `boxxy-agent` (`DetachedSessionInfo`), plus formatting helpers (`format_short_cwd`, `format_idle_duration`, `parse_hex_color`).
 - **`src/launcher.rs` (Binary & Asset Resolution):**
   - Resolves `boxxy-agent` and `boxxy-terminal` across native (`~/.local/boxxy-terminal/...`, `~/.local/bin/...`, `PATH`) and Flatpak (`dev.boxxy.BoxxyTerminal`) installations.
-  - `present_or_launch_terminal(activation_token)` spawns `boxxy-terminal` with `XDG_ACTIVATION_TOKEN` and `DESKTOP_STARTUP_ID`. Because `boxxy-terminal` is a single-instance `GApplication` (`HANDLES_COMMAND_LINE`), this either raises the existing window or launches a new window to drain pending restores via `TakePendingRestores`.
+  - `present_or_launch_terminal(activation_token)` spawns `boxxy-terminal --present` with `XDG_ACTIVATION_TOKEN` and `DESKTOP_STARTUP_ID`. Because `boxxy-terminal` is a single-instance `GApplication` (`HANDLES_COMMAND_LINE`), `--present` either raises the existing window or launches a new window to drain pending restores via `TakePendingRestores`.
   - Resolves character `AVATAR.png` files from `~/.config/boxxy-terminal/boxxyclaw/characters/<slug>/AVATAR.png` (respecting `BOXXY_CONFIG_DIR` and Flatpak config paths) and pre-renders 48×48 circular anti-aliased RGBA handles.
 - **`src/config.rs` (Shortcuts & COSMIC Sync):**
   - Persists 10 character focus slots (`slots[0..10]`) in `~/.config/boxxy-terminal/cosmic-companion.json`.

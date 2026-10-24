@@ -825,9 +825,11 @@ impl cosmic::Application for BoxxyApplet {
             Message::ToggleAgent => {
                 let subcommand = if self.daemon_running { "stop" } else { "start" };
                 spawn_agent_command(subcommand);
+                return self.close_popup_task();
             }
             Message::RestartAgent => {
                 spawn_agent_command("restart");
+                return self.close_popup_task();
             }
             Message::OpenShortcutsPage => {
                 self.popup_page = PopupPage::Shortcuts;

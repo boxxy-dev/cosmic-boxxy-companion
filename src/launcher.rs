@@ -117,6 +117,7 @@ pub fn present_or_launch_terminal(activation_token: Option<&str>) {
 
     let mut cmd = Command::new(&program);
     cmd.args(&args)
+        .arg("--present")
         .stdin(Stdio::null())
         .stdout(Stdio::null())
         .stderr(Stdio::null());
