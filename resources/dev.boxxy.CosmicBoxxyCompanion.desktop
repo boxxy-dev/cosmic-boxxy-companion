@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=Boxxy Terminal Companion
+Comment=Monitor boxxy-agent, restore detached background shells, and focus active AI characters
+Type=Application
+Exec=cosmic-boxxy-companion
+Terminal=false
+Categories=COSMIC;Utility;TerminalEmulator;
+Keywords=COSMIC;Applet;Boxxy;Terminal;AI;Claw;Agent;
+Icon=dev.boxxy.CosmicBoxxyCompanion-symbolic
+StartupNotify=true
+NoDisplay=true
+X-CosmicApplet=true
+X-CosmicShrinkable=true
+X-HostWaylandDisplay=true
+X-CosmicHoverPopup=Auto
+X-OverflowPriority=10
